@@ -65,7 +65,18 @@ public class NumberTriangle {
      * Note: a NumberTriangle contains at least one value.
      */
     public void maxSumPath() {
-        // for fun [not for credit]:
+        NumberTriangle mt = this;
+        int sum = this.root;
+        while (mt.left != null && mt.right != null) {
+            if (mt.left.getRoot() > mt.right.getRoot()) {
+                sum = sum + mt.left.getRoot();
+                mt = mt.left;
+            }
+            if (mt.right.getRoot() > mt.left.getRoot()) {
+                sum = sum + mt.right.getRoot();
+                mt = mt.right;
+            }
+        }
     }
 
 
